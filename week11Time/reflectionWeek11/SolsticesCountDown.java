@@ -1,16 +1,14 @@
 package week11Time.reflectionWeek11;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 public class SolsticesCountDown {
     private CountDownCalculator countDown = new CountDownCalculator();
-    private Map<Integer, LocalDate> dataSummer = new SolsticeData().getSummerSolsticeDate();
-    private Map<Integer, LocalDate> dataWinter = new SolsticeData().getWinterSolsticeDate();
+    private SolsticeCalculator calculator = new SolsticeCalculator();
 
     public String getSummerSolstice(LocalDate today) {
         Integer yearReference = today.getYear();
-        LocalDate solsticeDate = dataSummer.get(yearReference);
+        LocalDate solsticeDate = calculator.findSummerSolstice(yearReference);
         Long remainsInDays = countDown.calculate(today, solsticeDate);
         return "The Summer Solstice " + today.getYear() + " is on " +
                 solsticeDate.getDayOfWeek() + ", " +
@@ -23,7 +21,7 @@ public class SolsticesCountDown {
 
     public String getWinterSolstice(LocalDate today) {
         Integer yearReference = today.getYear();
-        LocalDate solsticeDate = dataWinter.get(yearReference);
+        LocalDate solsticeDate = calculator.findWinterSolstice(yearReference);
         Long remainsInDays = countDown.calculate(today, solsticeDate);
         return "The Winter Solstice " + today.getYear() + " is on " +
                 solsticeDate.getDayOfWeek() + ", " +
