@@ -13,8 +13,8 @@ public class MidNight extends TimeOfDay {
         System.out.print("It's midnight! ");
         return "Midnight";
     }
-
-    public Boolean checkTheValidInterval(Integer hour, Integer minute) {
+    @Override
+    public Boolean isInTheInterval(Integer hour, Integer minute) {
         LocalTime time = LocalTime.of(hour, minute);
         return time.equals(start) ||
                 time.equals(end);

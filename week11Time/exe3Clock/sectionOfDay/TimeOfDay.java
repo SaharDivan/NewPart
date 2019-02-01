@@ -14,7 +14,7 @@ public abstract class TimeOfDay {
         this.end = LocalTime.parse(end, DateTimeFormatter.ofPattern("HH:mm"));
     }
 
-    public Boolean checkTheValidInterval(Integer hour, Integer minute) {
+    public Boolean isInTheInterval(Integer hour, Integer minute) {
         LocalTime time = LocalTime.of(hour, minute);
         return (time.isAfter(start) && time.isBefore(end)) ||
                 time.equals(start) ||
@@ -24,7 +24,6 @@ public abstract class TimeOfDay {
     public String announceTheTime(Integer hour, Integer minute) {
         return reader.sayTime(hour, minute) + saySectionOfDay(hour, minute);
     }
-
 
     public abstract String saySectionOfDay(Integer hour, Integer minute);
 

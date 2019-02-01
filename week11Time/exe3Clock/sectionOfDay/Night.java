@@ -13,8 +13,8 @@ public class Night extends TimeOfDay {
         System.out.println("; at night. ");
         return "Night";
     }
-
-    public Boolean checkTheValidInterval(Integer hour, Integer minute) {
+    @Override
+    public Boolean isInTheInterval(Integer hour, Integer minute) {
         LocalTime time = LocalTime.of(hour, minute);
         LocalTime exception = LocalTime.of(0, 0);
 
@@ -23,6 +23,5 @@ public class Night extends TimeOfDay {
                 time.equals(start) ||
                 time.equals(end);
     }
-
 
 }
