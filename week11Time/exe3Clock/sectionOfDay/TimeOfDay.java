@@ -26,6 +26,5 @@ public abstract class TimeOfDay {
     }
 
     public abstract String saySectionOfDay(Integer hour, Integer minute);
-
 }
 
